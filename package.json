@@ -1,0 +1,8 @@
+{
+  "name": "ikagroservices",
+  "version": "1.0.0",
+  "scripts": {
+    "version": "node scripts/version.js",
+    "deploy": "node scripts/deploy.js"
+  }
+}
