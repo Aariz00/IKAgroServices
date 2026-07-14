@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | IK Agro Services</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+
+            --primary: #1F7A4D;
+            --primary-dark: #17613C;
+            --primary-light: #EAF8F0;
+
+            --secondary: #F7FAF8;
+
+            --white: #ffffff;
+
+            --text: #1E293B;
+            --text-light: #64748B;
+
+            --border: #E2E8F0;
+
+            --danger: #DC2626;
+            --success: #16A34A;
+
+            --shadow-lg: 0 25px 60px rgba(0, 0, 0, .08);
+            --shadow-md: 0 15px 35px rgba(0, 0, 0, .06);
+            --radius: 20px;
+
+        }
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+        body {
+
+            font-family: "Inter", sans-serif;
+
+            background:
+
+                radial-gradient(circle at top right, #EAF8F0 0%, transparent 40%),
+
+                radial-gradient(circle at bottom left, #EDF7FF 0%, transparent 45%),
+
+                #F8FAFC;
+
+            color: var(--text);
+
+            min-height: 100vh;
+
+            padding: 60px 20px;
+
+        }
+
+        img {
+
+            max-width: 100%;
+
+            display: block;
+
+        }
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+
+            font-family: inherit;
+
+        }
+
+        .container {
+
+            max-width: 1280px;
+
+            margin: auto;
+
+        }
+
+        .checkout-header {
+
+            margin-bottom: 40px;
+
+            text-align: center;
+
+        }
+
+        .checkout-header h1 {
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+
+        }
+
+        .checkout-header p {
+
+            color: var(--text-light);
+
+            font-size: 16px;
+
+        }
+
+        .checkout-grid {
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr;
+
+            gap: 35px;
+
+            align-items: start;
+
+        }
+
+        .card {
+
+            background: white;
+
+            border-radius: var(--radius);
+
+            padding: 35px;
+
+            box-shadow: var(--shadow-md);
+
+            border: 1px solid rgba(255, 255, 255, .5);
+
+            animation: fadeUp .6s ease;
+
+        }
+
+        .card h2 {
+
+            font-size: 22px;
+
+            margin-bottom: 25px;
+
+        }
+
+        .section {
+
+            margin-bottom: 45px;
+
+        }
+
+        .grid-2 {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+
+        }
+
+        .grid-3 {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+        }
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+        .required {
+
+            color: var(--danger);
+
+        }
+
+        input,
+        textarea,
+        select {
+
+            width: 100%;
+
+            padding: 15px 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            outline: none;
+
+            transition: .25s;
+
+            background: white;
+
+            font-size: 15px;
+
+        }
+
+        textarea {
+
+            resize: vertical;
+
+            min-height: 120px;
+
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+
+            border-color: var(--primary);
+
+            box-shadow: 0 0 0 4px rgba(31, 122, 77, .12);
+
+        }
+
+        .error {
+
+            border-color: var(--danger) !important;
+
+        }
+
+        .success {
+
+            border-color: var(--success) !important;
+
+        }
+
+        .error-message {
+
+            color: var(--danger);
+
+            font-size: 13px;
+
+            margin-top: 7px;
+
+            display: none;
+
+        }
+
+        .summary-card {
+
+            position: sticky;
+
+            top: 30px;
+
+        }
+
+        .product-box {
+
+            display: flex;
+
+            gap: 18px;
+
+            align-items: center;
+
+            padding-bottom: 22px;
+
+            margin-bottom: 22px;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+        .product-image {
+
+            width: 90px;
+
+            height: 90px;
+
+            border-radius: 14px;
+
+            background: #F3F4F6;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 700;
+
+            color: var(--primary);
+
+            overflow: hidden;
+
+        }
+
+        .product-info h3 {
+
+            font-size: 18px;
+
+            margin-bottom: 8px;
+
+        }
+
+        .product-info p {
+
+            color: var(--text-light);
+
+            font-size: 14px;
+
+        }
+
+        .summary-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 16px;
+
+            font-size: 15px;
+
+        }
+
+        .summary-total {
+
+            border-top: 1px solid var(--border);
+
+            margin-top: 20px;
+
+            padding-top: 20px;
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+        }
+
+        .secure-box {
+
+            margin-top: 25px;
+
+            background: var(--primary-light);
+
+            border-radius: 16px;
+
+            padding: 18px;
+
+            font-size: 14px;
+
+            color: var(--primary-dark);
+
+            line-height: 1.7;
+
+        }
+
+        .checkout-btn {
+
+            width: 100%;
+
+            margin-top: 30px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: var(--primary);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            padding: 18px;
+
+            transition: .3s;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+        }
+
+        .checkout-btn:hover {
+
+            background: var(--primary-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+        .checkout-btn:disabled {
+
+            cursor: not-allowed;
+
+            opacity: .7;
+
+            transform: none;
+
+        }
+
+        .loader {
+
+            width: 20px;
+
+            height: 20px;
+
+            border: 3px solid rgba(255, 255, 255, .3);
+
+            border-top: 3px solid white;
+
+            border-radius: 50%;
+
+            animation: spin .8s linear infinite;
+
+            display: none;
+
+        }
+
+        .checkout-btn.loading .loader {
+
+            display: block;
+
+        }
+
+        .checkout-btn.loading span {
+
+            opacity: .85;
+
+        }
+
+        @keyframes spin {
+
+            to {
+
+                transform: rotate(360deg);
+
+            }
+
+        }
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+        .breadcrumb {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            font-size: 14px;
+
+            color: var(--text-light);
+
+            margin-bottom: 25px;
+
+        }
+
+        .breadcrumb span {
+
+            color: var(--primary);
+            font-weight: 600;
+
+        }
+
+        .form-section-title {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+
+            padding-bottom: 15px;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+        .form-section-title h3 {
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+        }
+
+        .optional {
+
+            font-size: 13px;
+
+            color: var(--text-light);
+
+            background: #F1F5F9;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+        }
+
+        .input-wrapper {
+
+            position: relative;
+
+        }
+
+        .input-wrapper input,
+        .input-wrapper textarea,
+        .input-wrapper select {
+
+            padding-left: 18px;
+
+        }
+
+        .summary-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--primary-light);
+
+            color: var(--primary-dark);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            padding: 6px 12px;
+
+            border-radius: 999px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .coupon-box {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            gap: 10px;
+
+        }
+
+        .coupon-box input {
+
+            flex: 1;
+
+        }
+
+        .coupon-box button {
+
+            border: none;
+
+            background: var(--primary);
+
+            color: white;
+
+            padding: 0 22px;
+
+            border-radius: 12px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: .25s;
+
+        }
+
+        .coupon-box button:hover {
+
+            background: var(--primary-dark);
+
+        }
+
+        .checkout-note {
+
+            margin-top: 18px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: var(--text-light);
+
+            line-height: 1.7;
+
+        }
+
+        .checkout-note strong {
+
+            color: var(--primary-dark);
+
+        }
+
+        .info-box {
+
+            margin-top: 30px;
+
+            border-radius: 16px;
+
+            background: #FFF8E7;
+
+            border: 1px solid #F4D06F;
+
+            padding: 18px;
+
+        }
+
+        .info-box h4 {
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+
+            color: #8A5A00;
+
+        }
+
+        .info-box p {
+
+            font-size: 14px;
+
+            color: #7C5A10;
+
+            line-height: 1.7;
+
+        }
+
+        .summary-divider {
+
+            margin: 22px 0;
+
+            border: none;
+
+            border-top: 1px solid var(--border);
+
+        }
+
+        .security-features {
+
+            margin-top: 25px;
+
+            display: grid;
+
+            gap: 12px;
+
+        }
+
+        .security-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 14px;
+
+            color: var(--text-light);
+
+        }
+
+        .security-icon {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 50%;
+
+            background: var(--primary-light);
+
+            color: var(--primary);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 700;
+
+            flex-shrink: 0;
+
+        }
+
+        footer {
+
+            margin-top: 60px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            color: var(--text-light);
+
+        }
+
+        footer a {
+
+            color: var(--primary);
+
+            font-weight: 600;
+
+        }
+
+        @media(max-width:1100px) {
+
+            .checkout-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .summary-card {
+
+                position: relative;
+
+                top: 0;
+
+            }
+
+        }
+
+        @media(max-width:768px) {
+
+            body {
+
+                padding: 30px 15px;
+
+            }
+
+            .card {
+
+                padding: 24px;
+
+            }
+
+            .checkout-header h1 {
+
+                font-size: 32px;
+
+            }
+
+            .grid-2,
+            .grid-3 {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .product-box {
+
+                align-items: flex-start;
+
+            }
+
+            .product-image {
+
+                width: 72px;
+                height: 72px;
+
+            }
+
+        }
+
+        @media(max-width:480px) {
+
+            .checkout-header h1 {
+
+                font-size: 28px;
+
+            }
+
+            .checkout-btn {
+
+                padding: 16px;
+
+                font-size: 15px;
+
+            }
+
+            .summary-total {
+
+                font-size: 18px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ========================= -->
+        <!-- Checkout Header -->
+        <!-- ========================= -->
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span>Checkout</span>
+        </div>
+
+        <header class="checkout-header">
+
+            <h1>Secure Checkout</h1>
+
+            <p>
+                Complete your order by providing your billing information.
+                Your details are securely processed and will only be used
+                for order fulfillment.
+            </p>
+
+        </header>
+
+        <!-- ========================= -->
+        <!-- Main Grid -->
+        <!-- ========================= -->
+
+        <div class="checkout-grid">
+
+            <!-- ================================================= -->
+            <!-- LEFT COLUMN -->
+            <!-- ================================================= -->
+
+            <div class="card">
+
+                <form id="checkoutForm" novalidate>
+
+                    <!-- ========================================= -->
+                    <!-- CUSTOMER INFORMATION -->
+                    <!-- ========================================= -->
+
+                    <section class="section">
+
+                        <div class="form-section-title">
+
+                            <h3>
+                                Customer Information
+                            </h3>
+
+                        </div>
+
+                        <!-- Full Name -->
+
+                        <div class="form-group">
+
+                            <label for="fullName">
+
+                                Full Name
+
+                                <span class="required">*</span>
+
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+
+                            </div>
+
+                            <small class="error-message" id="fullNameError">
+                            </small>
+
+                        </div>
+
+                        <!-- Two Column -->
+
+                        <div class="grid-2">
+
+                            <!-- Email -->
+
+                            <div class="form-group">
+
+                                <label for="email">
+
+                                    Email Address
+
+                                    <span class="required">*</span>
+
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <input type="email" id="email" name="email" placeholder="example@email.com">
+
+                                </div>
+
+                                <small class="error-message" id="emailError">
+                                </small>
+
+                            </div>
+
+                            <!-- Phone -->
+
+                            <div class="form-group">
+
+                                <label for="phone">
+
+                                    Phone Number
+
+                                    <span class="required">*</span>
+
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <input type="tel" id="phone" name="phone" placeholder="+91 9876543210">
+
+                                </div>
+
+                                <small class="error-message" id="phoneError">
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Company -->
+
+                        <div class="form-group">
+
+                            <label for="company">
+
+                                Company Name
+
+                                <span class="optional">
+
+                                    Optional
+
+                                </span>
+
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input type="text" id="company" name="company" placeholder="Your company (optional)">
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- ========================================= -->
+                    <!-- BILLING ADDRESS -->
+                    <!-- ========================================= -->
+
+                    <section class="section">
+
+                        <div class="form-section-title">
+
+                            <h3>
+
+                                Billing Address
+
+                            </h3>
+
+                        </div>
+
+                        <!-- Country -->
+
+                        <div class="form-group">
+
+                            <label for="country">
+
+                                Country
+
+                                <span class="required">*</span>
+
+                            </label>
+
+                            <select id="country" name="country">
+
+                                <option value="">
+                                    Select Country
+                                </option>
+
+                                <option value="India">
+                                    India
+                                </option>
+
+                                <option value="United States">
+                                    United States
+                                </option>
+
+                                <option value="United Kingdom">
+                                    United Kingdom
+                                </option>
+
+                                <option value="Canada">
+                                    Canada
+                                </option>
+
+                                <option value="Australia">
+                                    Australia
+                                </option>
+
+                            </select>
+
+                            <small class="error-message" id="countryError">
+                            </small>
+
+                        </div>
+                        <!-- State / City -->
+
+                        <div class="grid-2">
+
+                            <div class="form-group">
+
+                                <label for="state">
+                                    State
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input type="text" id="state" name="state" placeholder="Enter your state">
+
+                                <small class="error-message" id="stateError">
+                                </small>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="city">
+                                    City
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input type="text" id="city" name="city" placeholder="Enter your city">
+
+                                <small class="error-message" id="cityError">
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <!-- ZIP & Phone -->
+
+                        <div class="grid-2">
+
+                            <div class="form-group">
+
+                                <label for="zip">
+
+                                    ZIP Code
+
+                                    <span class="required">*</span>
+
+                                </label>
+
+                                <input type="text" id="zip" name="zip" placeholder="Postal / ZIP Code">
+
+                                <small class="error-message" id="zipError">
+                                </small>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="address">
+
+                                    Street Address
+
+                                    <span class="required">*</span>
+
+                                </label>
+
+                                <input type="text" id="address" name="address"
+                                    placeholder="House No., Street, Landmark">
+
+                                <small class="error-message" id="addressError">
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Complete Address -->
+
+                        <div class="grid-2">
+
+                            <div class="form-group">
+
+                                <label for="address">
+
+                                    Street Address
+
+                                    <span class="required">*</span>
+
+                                </label>
+
+                                <input type="text" id="address" name="address"
+                                    placeholder="House No., Street, Landmark">
+
+                                <small class="error-message" id="addressError">
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="fullAddress">
+
+                                Complete Address
+
+                                <span class="required">*</span>
+
+                            </label>
+
+                            <textarea id="fullAddress" name="fullAddress"
+                                placeholder="Enter your complete delivery address"></textarea>
+
+                            <small class="error-message" id="fullAddressError">
+                            </small>
+
+                        </div>
+
+                    </section>
+
+                    <!-- ========================================= -->
+                    <!-- ADDITIONAL INFORMATION -->
+                    <!-- ========================================= -->
+
+                    <section class="section">
+
+                        <div class="form-section-title">
+
+                            <h3>
+
+                                Additional Information
+
+                            </h3>
+
+                            <span class="optional">
+
+                                Optional
+
+                            </span>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="notes">
+
+                                Order Notes
+
+                            </label>
+
+                            <textarea id="notes" name="notes"
+                                placeholder="Special instructions regarding your order..."></textarea>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Submit Button -->
+
+                    <button type="submit" id="checkoutBtn" class="checkout-btn">
+
+                        <div class="loader"></div>
+
+                        <span>
+
+                            Complete Order
+
+                        </span>
+
+                    </button>
+
+                    <p class="checkout-note">
+
+                        By placing this order you agree to our
+
+                        <strong>
+
+                            Terms & Conditions
+
+                        </strong>
+
+                        and
+
+                        <strong>
+
+                            Privacy Policy
+
+                        </strong>.
+
+                    </p>
+
+                </form>
+
+            </div>
+
+            <!-- ============================================ -->
+            <!-- RIGHT COLUMN -->
+            <!-- ============================================ -->
+
+            <aside class="card summary-card">
+
+                <div class="summary-badge">
+
+                    Order Summary
+
+                </div>
+
+                <div class="product-box">
+
+                    <div class="product-image" id="productImage">
+
+                        IMG
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3 id="productName">
+
+                            Loading Product...
+
+                        </h3>
+
+                        <p id="productId">
+
+                            Product ID
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span>
+
+                        Product Price
+
+                    </span>
+
+                    <strong id="productPrice">
+
+                        $0.00
+
+                    </strong>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span>
+
+                        Tax
+
+                    </span>
+
+                    <strong id="taxAmount">
+
+                        $0.00
+
+                    </strong>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span>
+
+                        Shipping
+
+                    </span>
+
+                    <strong>
+
+                        Free
+
+                    </strong>
+
+                </div>
+
+                <hr class="summary-divider">
+
+                <div class="summary-row summary-total">
+
+                    <span>
+
+                        Total
+
+                    </span>
+
+                    <strong id="totalAmount">
+
+                        ₹0.00
+
+                    </strong>
+
+                </div>
+                <!-- ======================================== -->
+                <!-- Secure Checkout Information -->
+                <!-- ======================================== -->
+
+                <div class="secure-box">
+
+                    <strong>Secure Checkout</strong>
+
+                    <p style="margin-top:10px; line-height:1.7;">
+
+                        This is a frontend demonstration checkout for
+                        IK Agro Services.
+
+                        No real payment will be processed.
+
+                        Your order information will be stored locally
+                        until a backend and payment gateway are integrated.
+
+                    </p>
+
+                </div>
+
+                <!-- ======================================== -->
+                <!-- Security Features -->
+                <!-- ======================================== -->
+
+                <div class="security-features">
+
+                    <div class="security-item">
+
+                        <div class="security-icon">
+
+                            ✓
+
+                        </div>
+
+                        <span>
+
+                            SSL Ready Architecture
+
+                        </span>
+
+                    </div>
+
+                    <div class="security-item">
+
+                        <div class="security-icon">
+
+                            🔒
+
+                        </div>
+
+                        <span>
+
+                            Future Razorpay & Stripe Compatible
+
+                        </span>
+
+                    </div>
+
+                    <div class="security-item">
+
+                        <div class="security-icon">
+
+                            ⚡
+
+                        </div>
+
+                        <span>
+
+                            Fast & Responsive Checkout Experience
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- ======================================== -->
+                <!-- Coupon Placeholder -->
+                <!-- ======================================== -->
+
+                <div class="coupon-box">
+
+                    <input type="text" placeholder="Coupon Code (Coming Soon)" disabled>
+
+                    <button type="button" disabled>
+
+                        Apply
+
+                    </button>
+
+                </div>
+
+                <!-- ======================================== -->
+                <!-- Info Box -->
+                <!-- ======================================== -->
+
+                <div class="info-box">
+
+                    <h4>
+
+                        Estimated Response Time
+
+                    </h4>
+
+                    <p>
+
+                        Once your order is submitted, our consulting
+                        team will review it and contact you within
+                        <strong>24 business hours.</strong>
+
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- ======================================== -->
+        <!-- Footer -->
+        <!-- ======================================== -->
+
+        <footer>
+
+            © <span id="year"></span>
+
+            IK Agro Services.
+
+            All Rights Reserved.
+
+        </footer>
+
+    </div>
+
+    <!-- ======================================== -->
+    <!-- Checkout JavaScript -->
+    <!-- ======================================== -->
+
+    <script src="assets/js/checkout.js?v=1784025954057"></script>
+
+    <script>
+
+        // Automatically update footer year
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+
+</html>
