@@ -8,8 +8,8 @@
     content="Organic Fertilizer product page for IkAgroServices with benefits, features, specifications and inquiry form.">
   <title>Organic Fertilizer | IkAgroServices</title>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="stylesheet" href="/css/style.css?v=1784181385777">
-  <!-- <link rel="stylesheet" href="css/style.css?v=1784181385777"> -->
+  <link rel="stylesheet" href="/css/style.css?v=1784261504982">
+  <!-- <link rel="stylesheet" href="css/style.css?v=1784261504982"> -->
 </head>
 
 <body>
@@ -31,6 +31,7 @@
         <a class="nav-link" href="/index.html#why-us">Why Choose Us</a>
         <a class="nav-link" href="/index.html#testimonials">Testimonials</a>
         <a class="nav-link" href="/index.html#contact">Contact</a>
+        <span id="cart-count">0</span>
       </nav>
       <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><svg
           aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -47,8 +48,18 @@
         <h1>Organic Fertilizer</h1>
         <p class="lead">A premium soil-building fertilizer designed to support healthier root systems, improved nutrient
           availability and long-term field productivity.</p>
-        <div class="button-row"><a class="btn btn-primary" href="#inquiry">Send Inquiry</a><a class="btn btn-secondary"
-            href="/checkout.html">Buy Now</a></div>
+        <div class="button-row">
+          <a class="btn btn-secondary add-to-cart-btn" href="/checkout.html">Buy Now</a>
+           <button type="button" 
+            class="btn btn-primary add-to-cart-btn"
+             data-id="organic-fertilizer"
+              data-name="Organic Fertilizer"
+              data-price="15000"
+               data-category="Agricultural Products"
+              data-image="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=82">
+              Add to Cart</button>
+         
+        </div>
       </div>
     </section>
     <section class="section">
@@ -109,14 +120,7 @@
             <span class="section-kicker">Price</span>
             <span class="price">15,000</span>
             <p>Final pricing should be confirmed based on quantity, destination and delivery requirements.</p>
-            <a class="btn btn-primary" href="#inquiry">Inquiry </a>
-            <button type="button" class="btn btn-primary" data-id="organic-fertilizer" data-name="Organic Fertilizer"
-              data-price="15000" data-category="Agricultural Products"
-              data-image="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=82">
-
-              Add to Cart
-
-            </button>
+          <a class="btn btn-primary add-to-cart-btn" href="#inquiry">Inquiry </a>
           </div>
           <div class="detail-card reveal">
             <h3>Industries Served</h3>
@@ -160,8 +164,8 @@
       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="m18 15-6-6-6 6"></path>
     </svg></button>
-  <script src="/js/script.js?v=1784181385777"></script>
-  <script src="/js/product.js?v=1784181385777"></script>
+  <script src="/js/script.js?v=1784261504982"></script>
+  <script src="/js/product.js?v=1784261504982"></script>
 </body>
 
 </html>

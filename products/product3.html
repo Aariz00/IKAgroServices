@@ -8,8 +8,8 @@
     content="Agro Chemical Solution product page for IkAgroServices with benefits, features, specifications and inquiry form.">
   <title>Agro Chemical Solution | IkAgroServices</title>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="stylesheet" href="/css/style.css?v=1784181385777">
-  <!-- <link rel="stylesheet" href="css/style.css?v=1784181385777"> -->
+  <link rel="stylesheet" href="/css/style.css?v=1784261504982">
+  <!-- <link rel="stylesheet" href="css/style.css?v=1784261504982"> -->
 </head>
 
 <body>
@@ -31,6 +31,7 @@
         <a class="nav-link" href="/index.html#why-us">Why Choose Us</a>
         <a class="nav-link" href="/index.html#testimonials">Testimonials</a>
         <a class="nav-link" href="/index.html#contact">Contact</a>
+        <span id="cart-count">0</span>
       </nav>
       <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><svg
           aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -48,8 +49,16 @@
         <p class="lead">A professional crop-care solution positioned for responsible protection programs, better field
           control and more dependable production outcomes.</p>
         <div class="button-row">
-          <a class="btn btn-primary" href="#inquiry">Send Inquiry</a>
+          <!-- <a class="btn btn-primary" href="#inquiry">Send Inquiry</a> -->
           <a class="btn btn-primary" href="./checkout.html">Buy Now</a>
+          <button type="button" class="btn btn-primary add-to-cart-btn" data-id="agro-chemical-solution"
+              data-name="Agro Chemical Solution" data-price="25000" data-category="Agricultural Products"
+              data-image="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=82">
+
+              Add to Cart
+
+            </button>
+
         </div>
       </div>
     </section>
@@ -109,14 +118,8 @@
         <aside class="side-panel">
           <div class="detail-card reveal"><span class="section-kicker">Price</span><span class="price">₹25,000</span>
             <p>Final pricing should be confirmed with technical documentation and shipment requirements.</p>
-            <a class="btn btn-primary" href="#inquiry">Inquiry </a>
-            <button type="button" class="btn btn-primary" data-id="agro-chemical-solution"
-              data-name="Agro Chemical Solution" data-price="25000" data-category="Agricultural Products"
-              data-image="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=82">
-
-              Add to Cart
-
-            </button>
+            <a class="btn btn-primary add-to-cart-btn" href="#inquiry">Inquiry </a>
+            
           </div>
           <div class="detail-card reveal">
             <h3>Industries Served</h3>
@@ -159,9 +162,9 @@
       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="m18 15-6-6-6 6"></path>
     </svg></button>
-  <script src="/js/script.js?v=1784181385777"></script>
-  <script src="/js/product.js?v=1784181385777"></script>
-  <!-- <script src="js/script.js?v=1784181385777"></script> -->
+  <script src="/js/script.js?v=1784261504982"></script>
+  <script src="/js/product.js?v=1784261504982"></script>
+  <!-- <script src="js/script.js?v=1784261504982"></script> -->
 </body>
 
 </html>

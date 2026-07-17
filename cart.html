@@ -1,19 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Shopping Cart | IK Agro Services</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css?v=1784181385777" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css?v=1784261504982" />
 
     <style>
         * {
@@ -23,34 +24,30 @@
         }
 
         :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ffc107;
 
-            --primary: #2E7D32;
-            --primary-dark: #1B5E20;
-            --secondary: #FFC107;
+            --text: #1e293b;
+            --light-text: #64748b;
 
-            --text: #1E293B;
-            --light-text: #64748B;
+            --border: #e5e7eb;
 
-            --border: #E5E7EB;
-
-            --bg: #F8FAFC;
+            --bg: #f8fafc;
 
             --white: #ffffff;
 
-            --danger: #E53935;
+            --danger: #e53935;
 
-            --shadow: 0 12px 40px rgba(0, 0, 0, .08);
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 
             --radius: 18px;
-
         }
 
         body {
-
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
             background: var(--bg);
             color: var(--text);
-
         }
 
         /*======================
@@ -58,9 +55,7 @@ NAVBAR PLACEHOLDER
 ======================*/
 
         .top-space {
-
             height: 90px;
-
         }
 
         /*======================
@@ -68,55 +63,43 @@ PAGE HEADER
 ======================*/
 
         .page-header {
-
             width: min(1300px, 92%);
             margin: auto;
             padding: 40px 0;
-
         }
 
         .breadcrumb {
-
             display: flex;
             gap: 10px;
             align-items: center;
 
             color: var(--light-text);
 
-            font-size: .95rem;
+            font-size: 0.95rem;
 
             margin-bottom: 18px;
-
         }
 
         .breadcrumb a {
-
             color: var(--primary);
             text-decoration: none;
-
         }
 
         .page-title {
-
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             flex-wrap: wrap;
             gap: 20px;
-
         }
 
         .page-title h1 {
-
             font-size: 2.4rem;
             font-weight: 700;
-
         }
 
         .page-title p {
-
             color: var(--light-text);
-
         }
 
         /*======================
@@ -124,7 +107,6 @@ LAYOUT
 ======================*/
 
         .cart-wrapper {
-
             width: min(1300px, 92%);
             margin: auto;
 
@@ -135,7 +117,6 @@ LAYOUT
             gap: 35px;
 
             padding-bottom: 80px;
-
         }
 
         /*======================
@@ -143,11 +124,9 @@ LEFT SIDE
 ======================*/
 
         .cart-left {
-
             display: flex;
             flex-direction: column;
             gap: 22px;
-
         }
 
         /*======================
@@ -155,7 +134,6 @@ CART ITEM
 ======================*/
 
         .cart-item {
-
             background: var(--white);
 
             border-radius: var(--radius);
@@ -169,68 +147,52 @@ CART ITEM
             gap: 24px;
 
             box-shadow: var(--shadow);
-
         }
 
         .product-image {
-
             width: 100%;
             height: 140px;
 
             border-radius: 14px;
 
             overflow: hidden;
-
         }
 
         .product-image img {
-
             width: 100%;
             height: 100%;
             object-fit: cover;
-
         }
 
         .product-details {
-
             display: flex;
             flex-direction: column;
-
         }
 
         .product-top {
-
             display: flex;
             justify-content: space-between;
             gap: 20px;
-
         }
 
         .product-name {
-
             font-size: 1.2rem;
             font-weight: 600;
-
         }
 
         .product-category {
-
             color: var(--light-text);
 
             margin-top: 5px;
-
         }
 
         .product-price {
-
             font-size: 1.35rem;
             font-weight: 700;
             color: var(--primary);
-
         }
 
         .product-bottom {
-
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -240,7 +202,6 @@ CART ITEM
             flex-wrap: wrap;
 
             gap: 20px;
-
         }
 
         /*======================
@@ -248,15 +209,12 @@ QUANTITY
 ======================*/
 
         .quantity {
-
             display: flex;
             align-items: center;
             gap: 12px;
-
         }
 
         .quantity button {
-
             width: 42px;
             height: 42px;
 
@@ -264,7 +222,7 @@ QUANTITY
 
             border-radius: 50%;
 
-            background: #EDF7ED;
+            background: #edf7ed;
 
             color: var(--primary);
 
@@ -272,26 +230,21 @@ QUANTITY
 
             cursor: pointer;
 
-            transition: .25s;
-
+            transition: 0.25s;
         }
 
         .quantity button:hover {
-
             background: var(--primary);
 
             color: white;
-
         }
 
         .quantity span {
-
             width: 40px;
 
             text-align: center;
 
             font-weight: 600;
-
         }
 
         /*======================
@@ -299,7 +252,6 @@ REMOVE BUTTON
 ======================*/
 
         .remove-btn {
-
             background: none;
             border: none;
 
@@ -308,13 +260,10 @@ REMOVE BUTTON
             font-weight: 600;
 
             cursor: pointer;
-
         }
 
         .remove-btn i {
-
             margin-right: 8px;
-
         }
 
         /*======================
@@ -322,7 +271,6 @@ CONTINUE SHOPPING
 ======================*/
 
         .continue-shopping {
-
             display: inline-flex;
 
             align-items: center;
@@ -334,7 +282,6 @@ CONTINUE SHOPPING
             text-decoration: none;
 
             font-weight: 600;
-
         }
 
         /*======================
@@ -342,7 +289,6 @@ RIGHT SIDE
 ======================*/
 
         .summary {
-
             position: sticky;
 
             top: 120px;
@@ -356,28 +302,22 @@ RIGHT SIDE
             padding: 30px;
 
             height: fit-content;
-
         }
 
         .summary h2 {
-
             margin-bottom: 30px;
-
         }
 
         .summary-row {
-
             display: flex;
             justify-content: space-between;
 
             margin-bottom: 18px;
 
             color: var(--light-text);
-
         }
 
         .summary-total {
-
             border-top: 1px solid var(--border);
 
             margin-top: 25px;
@@ -390,7 +330,6 @@ RIGHT SIDE
             font-size: 1.3rem;
 
             font-weight: 700;
-
         }
 
         /*======================
@@ -398,7 +337,6 @@ BUTTONS
 ======================*/
 
         .checkout-btn {
-
             width: 100%;
 
             margin-top: 30px;
@@ -419,18 +357,14 @@ BUTTONS
 
             cursor: pointer;
 
-            transition: .3s;
-
+            transition: 0.3s;
         }
 
         .checkout-btn:hover {
-
             background: var(--primary-dark);
-
         }
 
         .clear-cart {
-
             width: 100%;
 
             margin-top: 15px;
@@ -446,7 +380,6 @@ BUTTONS
             cursor: pointer;
 
             font-weight: 600;
-
         }
 
         /*======================
@@ -454,7 +387,6 @@ EMPTY CART
 ======================*/
 
         .empty-cart {
-
             display: none;
 
             width: min(700px, 90%);
@@ -469,281 +401,135 @@ EMPTY CART
             border-radius: 25px;
 
             box-shadow: var(--shadow);
-
         }
 
         .empty-cart i {
-
             font-size: 70px;
 
             color: var(--primary);
 
             margin-bottom: 20px;
-
         }
 
         .empty-cart h2 {
-
             margin-bottom: 15px;
-
         }
 
         .empty-cart p {
-
             color: var(--light-text);
 
             margin-bottom: 30px;
-
         }
 
         /*======================
 RESPONSIVE
 ======================*/
 
-        @media(max-width:980px) {
-
+        @media (max-width: 980px) {
             .cart-wrapper {
-
                 grid-template-columns: 1fr;
-
             }
 
             .summary {
-
                 position: static;
-
             }
-
         }
 
-        @media(max-width:700px) {
-
+        @media (max-width: 700px) {
             .cart-item {
-
                 grid-template-columns: 1fr;
-
             }
 
             .product-image {
-
                 height: 220px;
-
             }
 
             .product-top {
-
                 flex-direction: column;
-
             }
 
             .product-bottom {
-
                 flex-direction: column;
                 align-items: flex-start;
-
             }
 
             .page-title {
-
                 flex-direction: column;
                 align-items: flex-start;
-
             }
 
             .page-title h1 {
-
                 font-size: 2rem;
-
             }
-
         }
     </style>
-
 </head>
 
 <body>
-
     <!-- Replace this with your existing navbar -->
     <div class="top-space"></div>
 
     <header class="page-header">
-
         <div class="breadcrumb">
-
             <a href="index.html">Home</a>
 
             <i class="fa-solid fa-chevron-right"></i>
 
             <span>Shopping Cart</span>
-
         </div>
-
         <div class="page-title">
-
             <div>
-
                 <h1>Shopping Cart</h1>
 
                 <p><span id="cart-count">0</span> Item(s) in your cart</p>
-
             </div>
-
         </div>
-
     </header>
-
     <main class="cart-wrapper">
-
-        <section class="cart-left" id="cart-items">
-
-            <!-- Product Card -->
-
-            <div class="cart-item">
-
-                <div class="product-image">
-
-                    <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=900&q=82" alt="">
-
-                </div>
-
-                <div class="product-details">
-
-                    <div class="product-top">
-
-                        <div>
-
-                            <h3 class="product-name">
-                                Premium Bio Fertilizer
-                            </h3>
-
-                            <p class="product-category">
-                                Agricultural Services
-                            </p>
-
-                        </div>
-
-                        <div class="product-price">
-                            ₹20,000
-                        </div>
-
-                    </div>
-
-                    <div class="product-bottom">
-
-                        <div class="quantity">
-
-                            <button>-</button>
-
-                            <span>1</span>
-
-                            <button>+</button>
-
-                        </div>
-
-                        <button class="remove-btn">
-
-                            <i class="fa-solid fa-trash"></i>
-
-                            Remove
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
+    <section class="cart-left" id="cart-items">
+        <!-- Products will be generated automatically by cart.js -->
+    </section>
         <aside class="summary">
-
             <h2>Order Summary</h2>
 
             <div class="summary-row">
-
                 <span>Subtotal</span>
 
-                <strong id="subtotal">
-                    ₹20,000
-                </strong>
-
+                <strong id="subtotal"> ₹20,000 </strong>
             </div>
 
             <div class="summary-row">
-
                 <span>Shipping</span>
 
-                <strong>
-                    FREE
-                </strong>
-
+                <strong> FREE </strong>
             </div>
 
             <div class="summary-row">
-
                 <span>Tax</span>
 
-                <strong>
-                    ₹0
-                </strong>
-
+                <strong> ₹0 </strong>
             </div>
 
             <div class="summary-total">
-
                 <span>Total</span>
 
-                <span id="grand-total">
-                    ₹20,000
-                </span>
-
+                <span id="grand-total"> ₹20,000 </span>
             </div>
 
-            <button class="checkout-btn" href="/checkout.html">
-
-                Proceed to Checkout
-
-            </button>
-
-            <button class="clear-cart">
-
-                Clear Cart
-
-            </button>
-
+            <button class="checkout-btn" href="/checkout.html">Proceed to Checkout</button>
+            <button class="clear-cart">Clear Cart</button>
             <a href="/index.html" class="continue-shopping">
-
-                <i class="fa-solid fa-arrow-left"></i>
-
-                Continue Shopping
-
-            </a>
-
+                <i class="fa-solid fa-arrow-left"></i>Continue Shopping</a>
         </aside>
-
     </main>
 
     <section class="empty-cart" id="empty-cart">
-
         <i class="fa-solid fa-cart-shopping"></i>
-
         <h2>Your Cart is Empty</h2>
-
-        <p>
-
-            Looks like you haven't added any products yet.
-
-        </p>
-
-        <button class="checkout-btn" href="./index.html">
-
-            Continue Shopping
-
-        </button>
-
+        <p>Looks like you haven't added any products yet.</p>
+        <button class="checkout-btn" href="./index.html"> Continue Shopping</button>
     </section>
-
+    <script src="/js/cart.js?v=1784261504982"></script>
 </body>
 
 </html>
